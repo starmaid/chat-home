@@ -5,10 +5,9 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>Starmaid Chat!</title><!-- Begin Jekyll SEO tag v2.8.0 -->
-  <meta property="og:title" content="Sign my Cyber Cast" />
-  <meta name="author" content="Nicky Masso" />
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
+  <title>Starmaid Chat!</title>
+  <meta name="author" content="Nicky" />
   <meta property="og:locale" content="en_US" />
   <meta name="description" content="My cool internet site :)" />
   <meta property="og:description" content="My cool internet site :)" />
@@ -19,23 +18,120 @@
 </head>
 
 <body a="light">
+  <script data-goatcounter="https://starmaid.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+  <noscript>
+    <img src="https://starmaid.goatcounter.com/count?p=/test-img">
+  </noscript>
   <main class="page-content" aria-label="Content">
     <div class="w">
-      <a href="/">../ (back)</a>
+      <a href="https://nickymasso.com">My Homepage</a>
       <article>
-        <p class="post-meta">
-          <time datetime="2023-02-01 00:00:00 -0800">2023-02-01</time>
-        </p>
-
         <h1>chat.starmaid.xyz</h1>
 
-        <p><img src="/s/cybercast.png" alt="" /></p>
+        How to start chatting:
 
-        <p>Hi! You want to join my awesome homeserver probably, or are looking for our chat rooms.</p>
+        <ol>
+          <li>Pick a homeserver. This is the server that will host your account data and store your messages. I'm
+            assuming you will be using this homeserver (chat.starmaid.xyz) but you can also
+            pick one from <a href="https://servers.joinmatrix.org/">this list.</a></li>
+          <li>If using chat.starmaid.xyz, go to the <a href="https://app.element.io/#/register">Official Element Web
+              Client</a> to
+            create your account.</li>
+          <p><img src="guide_1.png" alt="" /></p>
+          <p><img src="guide_2.png" alt="" /></p>
+          <li>Enter the Registration Token. Message me and I will tell you. This prevents randos from creating accounts
+            on this homeserver.</li>
+          <p><img src="guide_3.png" alt="" /></p>
+          <li>Pick a <a href="https://matrix.org/ecosystem/clients/">client program</a>. Element is great, so are some
+            of the others.</li>
+          <li>Send a message in the all-homeserver general chat! You should be auto-added after creating an account.
+          </li>
+        </ol>
+
+        <p>If you want more information on any of these topics, check out the <a
+            href="https://joinmatrix.org/guide/">Join Matrix Guide</a> for an in-depth look at whats going on here.</p>
+
+        <p>Remember, this won't be Discord. Things are slightly different, there arent custom emojis. Things are a
+          little rougher around the edges. I'm telling this to myself to remember to not get mad at the platform, and
+          maybe we can help improve it.</p>
+
+        <h2>Agreement</h2>
+
+        <p>I will try to be a reasonable owner who maintains this server. Please be patient.</p>
+        <p>Likewise, be cool and try not to abuse the server or others. If I never have to add more terms to this, then
+          that will be awesome.</p>
+
+        <h2>About the setup</h2>
+
+        <ul>
+          <li>I'm hosting this at my apartment on a desktop PC. Things that affect my apartment (internet/power outages,
+            etc) will affect the server. I have a battery UPS, but I don't have two internet connections.</li>
+          <li>I'm using Dynamic DNS from my ISP. This means sometimes Comcast will change the public IP of my apartment.
+            My server will auto-update where starmaid.xyz points, But it may take a minute or so. This does not happen
+            frequently - only once every several months. If I pay more, I could get a static IP 💭</li>
+          <li>The server goes offline sometime between 4-5am PST on Mondays for maintenance/upgrades and stuff. Its
+            usually only for a few minutes but could be longer.</li>
+          <li>My backups are pretty manual right now. I'm working on improving it 💭, but theres always a non-zero
+            chance I
+            lose our chat data. IMO its better than using it for advertising or evil or whatever.</li>
+        </ul>
+
+        <h2>My Motivation</h2>
+
+        <p>I'm doing this because I think its fun. I like setting up and configuring web services. I also like free open
+          source software. I also like to do things for my friends. I actually tried this once before, <a
+            href="https://www.nickymasso.com/blog/matrix-setup/">about 6 years ago</a>, and it was fun but not very
+          performant. Since then, both matrix has improved (I'm using tuwunel instead of synapse) and people are losing
+          patience with Discord.</p>
+
+        <h2>What This Costs Me</h2>
+
+        <p>These are all shared costs with everything else I do on my network, so its not like this is all-encompassing
+          "WHAT I PAY FOR CHAT". But it gives an order of magnitude.</p>
+
+        <ul>
+          <li>Domain (starmaid.xyz) costs $14/year</li>
+          <li>Internet costs like $40 a month<sup class="sup-popup" id="elec-sup">1
+              <div class="popup" id="popup-internet">Thanks xfinity.</div>
+            </sup></li>
+          <li>Electricity costs about $80 per year<sup class="sup-popup" id="elec-sup">2
+              <div class="popup" id="popup-electricity">0.23 $/kWh × 40W × 0.001 kW/W × 24 h/day × 365 days/year ≈
+                $80/year</div>
+            </sup></li>
+        </ul>
+
+        <h2>The Future</h2>
+
+        <p>Realistically, if this server isn't enough and people want to pay for it, I can set this up on like a
+          cloudflare server so it has better uptime and can scale to more users. We will make that call as we grow.</p>
+
 
       </article>
     </div>
   </main>
 </body>
+
+<script>
+  // Popup logic for all <sup class="sup-popup">
+  document.querySelectorAll('.sup-popup').forEach(function (sup) {
+    const popup = sup.querySelector('.popup');
+    if (!popup) return;
+    sup.addEventListener('mouseenter', () => {
+      popup.classList.add('active');
+    });
+    sup.addEventListener('mouseleave', () => {
+      popup.classList.remove('active');
+    });
+    sup.addEventListener('click', (e) => {
+      popup.classList.toggle('active');
+      e.stopPropagation();
+    });
+  });
+  // Hide popups when clicking outside
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.popup.active').forEach(p => p.classList.remove('active'));
+  });
+</script>
 
 </html>
